@@ -1,6 +1,4 @@
-# README
-
-Technology:
+# Technology:
   - Ruby on Rails
     - Active Record
     - Action Cable
@@ -12,7 +10,7 @@ Technology:
     
   - Node Package Manager
 
-What I learned:
+# What I learned:
   - creating a database
   - CREATE, READ, UPDATE, DELETE data on both front-end and back-end
   - How to use Action Cable for real time broadcasting
