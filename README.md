@@ -15,3 +15,5 @@
   - CREATE, READ, UPDATE, DELETE data on both front-end and back-end
   - How to use Action Cable for real time broadcasting
   
+# useContext
+  - useContext is used from index.js to RoomSocket.js
