@@ -9,6 +9,17 @@ export default function Home({ user, setUser }) {
   const [authenticated, setauthenticated] = useState(null);
   const [roomData, setRoomData] = useState([]);
 
+  // useState(() => {
+  //   fetch("/rooms")
+  //     .then((r) => {
+  //       if (r.ok) {
+  //         return r.json();
+  //       }
+  //       throw new Error("rooms not populating due to not being logged in");
+  //     })
+  //     .then((rooms) => setRoomData(rooms));
+  // }, [roomData]);
+
   useEffect(() => {
     fetch("/rooms")
       .then((r) => {
@@ -18,7 +29,7 @@ export default function Home({ user, setUser }) {
         throw new Error("rooms not populating due to not being logged in");
       })
       .then((rooms) => setRoomData(rooms));
-  }, []);
+  }, [roomData]);
 
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {

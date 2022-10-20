@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
   TextField,
   Typography,
   Container,
-  Paper,
-  InputBase,
   IconButton,
   InputAdornment,
   Grid,
@@ -21,7 +16,7 @@ import Chatfeed from "./Chatfeed";
 
 export default function ShowRoom({
   currentUser,
-  cableApp,
+  // cableApp,
   updateApp,
   getRoomData,
   messages,
@@ -146,24 +141,25 @@ export default function ShowRoom({
             )}
           </div>
         </Container>
-
-        <TextField
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          fullWidth
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton>
-                  <SendIcon onClick={handleSendMessage} />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
+        <form onSubmit={handleSendMessage}>
+          <TextField
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton type="submit" onClick={handleSendMessage}>
+                    <SendIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </form>
       </Container>
       <RoomWebSocket
-        cableApp={cableApp}
+        // cableApp={cableApp}
         updateApp={updateApp}
         getRoomData={getRoomData}
         roomData={roomData}

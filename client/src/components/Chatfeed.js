@@ -1,20 +1,10 @@
-import { Button, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Typography } from "@mui/material";
+
 import React, { useState } from "react";
 import "./chat-feed.css";
-export default function Chatfeed({
-  currentUser,
-  room,
-  allUsers,
-  user,
-  message,
-  onUpdateMessage,
-  onDeleteMessage,
-}) {
-  const timestamp = new Date(message.created_at).toLocaleTimeString();
 
-  // console.log(message.user_id, "message.user_id");
-  // console.log(currentUser.id, "current.id");
+export default function Chatfeed({ currentUser, user, message }) {
+  const timestamp = new Date(message.created_at).toLocaleTimeString();
 
   const messageBubble = () => {
     if (message.user_id === parseInt(currentUser.id)) {
@@ -30,7 +20,7 @@ export default function Chatfeed({
       return "other-user-message";
     }
   };
-  // console.log(user);
+
   return (
     <div className="chat-feed-container">
       <div id="chat-message" className={whichUser()}>
