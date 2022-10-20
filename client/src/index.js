@@ -7,7 +7,7 @@ import actionCable from "actioncable";
 
 const cableApp = {};
 
-cableApp.cable = actionCable.createConsumer("ws://localhost:3000/cable");
+cableApp.cable = actionCable.createConsumer("ws://localhost:5000/cable");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
