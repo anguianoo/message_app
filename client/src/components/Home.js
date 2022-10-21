@@ -5,20 +5,7 @@ import RoomCreator from "./RoomCreator";
 import Room from "./Room";
 
 export default function Home({ user, setUser }) {
-  const navigate = useNavigate();
-  const [authenticated, setauthenticated] = useState(null);
   const [roomData, setRoomData] = useState([]);
-
-  // useState(() => {
-  //   fetch("/rooms")
-  //     .then((r) => {
-  //       if (r.ok) {
-  //         return r.json();
-  //       }
-  //       throw new Error("rooms not populating due to not being logged in");
-  //     })
-  //     .then((rooms) => setRoomData(rooms));
-  // }, [roomData]);
 
   useEffect(() => {
     fetch("/rooms")
@@ -57,8 +44,11 @@ export default function Home({ user, setUser }) {
       ))}
     </>
   ) : (
-    <>
+    <div className="home">
       <Typography variant="h3">Welcome, please login or sign up!</Typography>
-    </>
+      <Typography variant="h4">
+        The App allows users to message eachother
+      </Typography>
+    </div>
   );
 }
